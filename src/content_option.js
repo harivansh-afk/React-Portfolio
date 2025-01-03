@@ -1,7 +1,7 @@
 const logotext = "HARIVANSH";
 const meta = {
-    title: "Harivansh Rathi",
-    description: "I’m Harivansh Rathi, a Computer Science student at the University of Virginia.",
+    title: "Harivansh Rathi | Portfolio",
+    description: "I'm Harivansh Rathi, a Computer Science student at the University of Virginia.",
 };
 
 const introdata = {
