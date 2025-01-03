@@ -34,13 +34,64 @@ section {
   height: calc(100vh - 60px);
   min-height: 700px;
   height: 100vh;
-  margin-top: -60px;
+  margin-top: 0;
 }
 
+/* Mobile-first responsive styles */
 @media (max-width: 991.98px) {
   .intro_sec {
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: auto !important;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+
+  .intro_sec .text,
+  .intro_sec .h_bg-image {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .intro_sec .text h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .intro_sec .text h3 {
+    font-size: 14px;
+  }
+
+  .intro_sec > .h_bg-image {
+    min-height: 400px;
+    margin-top: 10px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .ac_btn {
+    padding: 12px 24px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+  .intro_sec .text h1 {
+    font-size: 22px;
+  }
+
+  .intro_sec .h_bg-image {
+    min-height: 300px;
+  }
+
+  .btn-portfolio,
+  .btn-about {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }
 

@@ -7,6 +7,7 @@
   --text-color-3: rgb(204, 0, 0);
   --overlay-color: rgb(8 8 8 / 63%);
   --image-container-bg: #060606;
+  --card-border: rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="light"] {
@@ -18,6 +19,7 @@
   --text-color-3: rgb(204, 0, 0);
   --overlay-color: rgb(227 218 201 / 70%);
   --image-container-bg: #d8c9b2;
+  --card-border: rgba(0, 0, 0, 0.2);
 }
 
 html,
@@ -27,9 +29,9 @@ body {
 
 body {
   margin: 0;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
-  overflow-y: visible;
+  overflow-y: hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
@@ -38,6 +40,14 @@ body {
   padding-top: 60px;
   border-left: 10px solid var(--primary-color);
   border-right: 10px solid var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 ul {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Typewriter from "typewriter-effect";
@@ -6,6 +6,36 @@ import { introdata, meta } from "../../content_option";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const [needsScroll, setNeedsScroll] = useState(false);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      const body = document.body;
+      const html = document.documentElement;
+      const documentHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+      const windowHeight = window.innerHeight;
+      setNeedsScroll(documentHeight > windowHeight);
+    };
+
+    // Initial check
+    checkOverflow();
+
+    // Add resize listener
+    window.addEventListener('resize', checkOverflow);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflowY = needsScroll ? 'auto' : 'hidden';
+  }, [needsScroll]);
   return (
     <HelmetProvider>
       <section id="home" className="home">

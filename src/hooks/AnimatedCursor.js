@@ -2,12 +2,12 @@ import React, {useEffect,useRef,useState,useCallback} from "react"
 
 const IsDevice = (() => {
     if (typeof navigator == 'undefined') return
-  
+
     let ua = navigator.userAgent
-  
+
     return {
       info: ua,
-  
+
       Android() {
         return ua.match(/Android/i)
       },
@@ -30,7 +30,7 @@ const IsDevice = (() => {
       OperaMini() {
         return ua.match(/Opera Mini/i)
       },
-  
+
       /**
        * Any Device
        */
@@ -50,25 +50,25 @@ const IsDevice = (() => {
 
 function useEventListener(eventName, handler, element = document) {
     const savedHandler = useRef()
-  
+
     useEffect(() => {
       savedHandler.current = handler
     }, [handler])
-  
+
     useEffect(() => {
       const isSupported = element && element.addEventListener
       if (!isSupported) return
-  
+
       const eventListener = (event) => savedHandler.current(event)
-  
+
       element.addEventListener(eventName, eventListener)
-  
+
       return () => {
         element.removeEventListener(eventName, eventListener)
       }
     }, [eventName, element])
   }
-  
+
   /**
  * Cursor Core
  * Replaces the native cursor with a custom animated cursor, consisting
@@ -121,7 +121,7 @@ function CursorCore({
     const [isActiveClickable, setIsActiveClickable] = useState(false)
     let endX = useRef(0)
     let endY = useRef(0)
-  
+
     /**
      * Primary Mouse move event
      * @param {number} clientX - MouseEvent.clientx
@@ -134,7 +134,7 @@ function CursorCore({
       endX.current = clientX
       endY.current = clientY
     }, [])
-  
+
     // Outer Cursor Animation Delay
     const animateOuterCursor = useCallback(
       (time) => {
@@ -149,25 +149,25 @@ function CursorCore({
       },
       [requestRef] // eslint-disable-line
     )
-  
+
     // RAF for animateOuterCursor
     useEffect(() => {
       requestRef.current = requestAnimationFrame(animateOuterCursor)
       return () => cancelAnimationFrame(requestRef.current)
     }, [animateOuterCursor])
-  
+
     // Mouse Events State updates
     const onMouseDown = useCallback(() => setIsActive(true), [])
     const onMouseUp = useCallback(() => setIsActive(false), [])
     const onMouseEnterViewport = useCallback(() => setIsVisible(true), [])
     const onMouseLeaveViewport = useCallback(() => setIsVisible(false), [])
-  
+
     useEventListener('mousemove', onMouseMove)
     useEventListener('mousedown', onMouseDown)
     useEventListener('mouseup', onMouseUp)
     useEventListener('mouseover', onMouseEnterViewport)
     useEventListener('mouseout', onMouseLeaveViewport)
-  
+
     // Cursors Hover/Active State
     useEffect(() => {
       if (isActive) {
@@ -178,7 +178,7 @@ function CursorCore({
         cursorOuterRef.current.style.transform = 'translate(-50%, -50%) scale(1)'
       }
     }, [innerScale, outerScale, isActive])
-  
+
     // Cursors Click States
     useEffect(() => {
       if (isActiveClickable) {
@@ -190,7 +190,7 @@ function CursorCore({
         })`
       }
     }, [innerScale, outerScale, isActiveClickable])
-  
+
     // Cursor Visibility State
     useEffect(() => {
       if (isVisible) {
@@ -201,13 +201,13 @@ function CursorCore({
         cursorOuterRef.current.style.opacity = 0
       }
     }, [isVisible])
-  
+
     useEffect(() => {
       const clickableEls = document.querySelectorAll(clickables.join(','))
-  
+
       clickableEls.forEach((el) => {
         el.style.cursor = 'none'
-  
+
         el.addEventListener('mouseover', () => {
           setIsActive(true)
         })
@@ -226,7 +226,7 @@ function CursorCore({
           setIsActiveClickable(false)
         })
       })
-  
+
       return () => {
         clickableEls.forEach((el) => {
           el.removeEventListener('mouseover', () => {
@@ -249,7 +249,7 @@ function CursorCore({
         })
       }
     }, [isActive, clickables])
-  
+
     // Cursor Styles
     const styles = {
       cursorInner: {
@@ -278,10 +278,12 @@ function CursorCore({
         ...(outerStyle && outerStyle)
       }
     }
-  
-    // Hide / Show global cursor
-    document.body.style.cursor = 'none'
-  
+
+    // Hide native cursor only on non-mobile devices
+    if (!IsDevice.any()) {
+      document.body.style.cursor = 'none'
+    }
+
     return (
       <React.Fragment>
         <div ref={cursorOuterRef} style={styles.cursorOuter} />
@@ -289,7 +291,7 @@ function CursorCore({
       </React.Fragment>
     )
   }
-  
+
   /**
    * AnimatedCursor
    * Calls and passes props to CursorCore if not a touch/mobile device.
@@ -324,6 +326,6 @@ function CursorCore({
       />
     )
   }
-  
- 
+
+
 export default AnimatedCursor
