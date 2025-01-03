@@ -56,6 +56,29 @@ export const About = () => {
         </Row>
         <Row className="sec_sp">
           <Col lg="5">
+            <h3 className="color_sec py-4">Education</h3>
+          </Col>
+          <Col lg="7">
+            <div>
+              <p>
+                <strong>University of Virginia, Charlottesville, VA</strong>
+                <br />
+                Bachelor of Arts, Computer Science
+                <br />
+                Expected May 2026
+                <br />
+                Cumulative GPA: 3.55/4.0
+                <br />
+                Relevant Coursework:
+                <br />
+                Data structures and algo, Computer systems and organization,
+                Software dev essentials
+              </p>
+            </div>
+          </Col>
+        </Row>
+        <Row className="sec_sp">
+          <Col lg="5">
             <h3 className="color_sec py-4">Skills</h3>
           </Col>
           <Col lg="7">
@@ -76,29 +99,6 @@ export const About = () => {
                 </div>
               );
             })}
-          </Col>
-        </Row>
-        <Row className="sec_sp">
-          <Col lg="5">
-            <h3 className="color_sec py-4">Education</h3>
-          </Col>
-          <Col lg="7">
-            <div>
-              <p>
-                <strong>University of Virginia, Charlottesville, VA</strong>
-                <br />
-                Bachelor of Arts, Computer Science
-                <br />
-                Expected May 2026
-                <br />
-                Cumulative GPA: 3.55/4.0
-                <br />
-                Relevant Coursework:
-                <br />
-                Data structures and algo, Computer systems and organization,
-                Software dev essentials
-              </p>
-            </div>
           </Col>
         </Row>
       </Container>
