@@ -121,24 +121,24 @@ const services = [{
 ];
 
 const dataportfolio = [{
-        img: "https://picsum.photos/400/300/?grayscale",
+        img: "/images/project1.jpg",
         description: "Built a React/TypeScript RAG AI chat application with n8n, achieving 95% query response accuracy",
-        link: "https://github.com/harivansh-afk/RAG-ui",
+        link: "https://rag-ui-six.vercel.app/",
     },
     {
-        img: "https://picsum.photos/400/300/?grayscale",
+        img: "/images/project2.jpg",
         description: "Co-authored a research paper on cryptocurrency market predictability with a PHD student at CMU",
-        link: "https://github.com/harivansh-afk/CryptoCurrencyPredictionLSTM",
+        link: "https://docs.google.com/document/d/1i0IZgHYEERKVdRMBtCdK6jJGRoEoZUY7T43fuGKEDm8/edit?tab=t.0#heading=h.nazxqu6em5gk",
     },
     {
-        img: "https://picsum.photos/400/300/?grayscale",
+        img: "/images/project3.jpg",
         description: "Built a full-stack habit tracker web app with React, TypeScript, and Supabase, boosting scalability by 25%",
-        link: "https://github.com/harivansh-afk/Habit-Tracker",
+        link: "https://habit-tracker-2-eta.vercel.app/",
     },
     {
-        img: "https://picsum.photos/400/300/?grayscale",
+        img: "/images/project4.jpg",
         description: "Built a React/TypeScript app with Shadcn/UI and Tailwind, implementing lazy loading for 40% faster loads",
-        link: "https://github.com/harivansh-afk/ENGL-Final-Project",
+        link: "https://guidetoausten.netlify.app/",
     },
 ];
 

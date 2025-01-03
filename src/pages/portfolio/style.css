@@ -15,6 +15,390 @@
   margin: 0.5rem;
   position: relative;
   background: var(--card-bg, var(--background));
+  padding: 0;
+  border: 1px solid var(--card-border, var(--muted));
+  border-radius: 8px;
+  outline: 2px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 0;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+
+.project_item .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--overlay-bg, rgba(0, 0, 0, 0.7));
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+>>>>>>>REPLACE > .project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 0;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+>>>>>>>REPLACE > .project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 1rem;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 1rem;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.project_item .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.project_item:hover .content {
+  opacity: 1;
+}
+
+.project_item .content p {
+  color: var(--overlay-text, white);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  max-width: 90%;
+  background: var(--overlay-text-bg, rgba(0, 0, 0, 0.5));
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+>>>>>>>REPLACE > .project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 0;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+>>>>>>>REPLACE > .project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 1rem;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
   padding: 1rem;
   border: 0.5px solid var(--card-border, var(--foreground));
   border-radius: 8px;
@@ -76,29 +460,224 @@
 }
 
 .project_item .content p {
-  color: var(--foreground);
+  color: white;
   font-size: 0.875rem;
   line-height: 1.25rem;
   margin-bottom: 1rem;
   text-align: center;
   max-width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 4px;
 }
 
 .project_item .content a {
-  background: var(--button-bg, var(--background));
-  border: 1px solid var(--button-border, var(--border));
+  background: var(--overlay-button-bg, rgba(255, 255, 255, 0.9));
+  border: 1px solid var(--overlay-button-border, rgba(255, 255, 255, 0.2));
   border-radius: 6px;
   padding: 0.5rem 1rem;
   text-align: center;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--foreground);
+  color: var(--overlay-button-text, black);
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project_item .content a:hover {
-  background: var(--button-hover-bg, var(--muted));
+  background: var(--overlay-button-hover-bg, rgba(255, 255, 255, 1));
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+.project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 0;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+>>>>>>>REPLACE > .project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 1rem;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1;
+}
+.project_items_ho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.project_item {
+  width: calc(33% - 2rem);
+  text-align: center;
+  margin: 0.5rem;
+  position: relative;
+  background: var(--card-bg, var(--background));
+  padding: 1rem;
+  border: 0.5px solid var(--card-border, var(--foreground));
+  border-radius: 8px;
+  outline: 3px solid var(--card-outline-color, var(--primary));
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.project_item:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-outline-hover, var(--primary));
+}
+
+@media (max-width: 768px) {
+  .project_item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .project_item {
+    width: calc(100% - 2rem);
+  }
+}
+
+.project_item img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.project_item .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.project_item:hover .content {
+  opacity: 1;
+}
+
+.project_item .content p {
+  color: white;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  max-width: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.project_item .content a {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project_item .content a:hover {
+  background: rgba(255, 255, 255, 1);
   transform: translateY(-1px);
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
