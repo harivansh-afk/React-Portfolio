@@ -20,6 +20,11 @@ const dataabout = {
     aboutme: "I am a Computer Science student at the University of Virginia, with a passion for software development and AI. I enjoy building scalable applications and exploring the latest advancements in technology. I am always eager to learn and contribute to innovative projects.",
 };
 const worktimeline = [{
+        jobtitle: "Co Founder",
+        where: "SOLVEX",
+        date: "December 2024 - Present",
+    },
+    {
         jobtitle: "Front End Development Intern",
         where: "UNIKOVE TECHNOLOGIES",
         date: "June 2024 - August 2024",
@@ -146,9 +151,9 @@ const contactConfig = {
     YOUR_EMAIL: "zng2gc@virginia.edu",
     YOUR_FONE: "+1 434-310-1227",
     description: "I am currently based in Charlottesville, VA. Feel free to reach out to me for any opportunities or collaborations.",
-    YOUR_SERVICE_ID: "service_id",
-    YOUR_TEMPLATE_ID: "template_id",
-    YOUR_USER_ID: "user_id",
+    YOUR_SERVICE_ID: "YOUR_EMAILJS_SERVICE_ID",
+    YOUR_TEMPLATE_ID: "YOUR_EMAILJS_TEMPLATE_ID",
+    YOUR_USER_ID: "YOUR_EMAILJS_PUBLIC_KEY",
 };
 
 const socialprofils = {

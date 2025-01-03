@@ -3,6 +3,7 @@ import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export const Portfolio = () => {
   return (
@@ -21,12 +22,18 @@ export const Portfolio = () => {
         </Row>
         <div className="mb-5 project_items_ho">
           {dataportfolio.map((data, i) => {
+            const title = data.description.split(",")[0];
+            const description = data.description.split(",").slice(1).join(",").trim();
+
             return (
               <div key={i} className="project_item">
-                <img src={data.img} alt="" />
+                <img src={data.img} alt={title} />
                 <div className="content">
-                  <p>{data.description}</p>
-                  <a href={data.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                  <a href={data.link} target="_blank" rel="noopener noreferrer">
+                    View Project <FaExternalLinkAlt size={14} />
+                  </a>
                 </div>
               </div>
             );

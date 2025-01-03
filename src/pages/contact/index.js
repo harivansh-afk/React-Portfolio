@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as emailjs from "emailjs-com";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
@@ -17,51 +17,56 @@ export const ContactUs = () => {
     variant: "",
   });
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    // Initialize EmailJS with your user ID
+    emailjs.init(contactConfig.YOUR_USER_ID);
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata(prev => ({ ...prev, loading: true }));
 
-    const templateParams = {
-      from_name: formData.email,
-      user_name: formData.name,
-      to_name: contactConfig.YOUR_EMAIL,
-      message: formData.message,
-    };
+    try {
+      const templateParams = {
+        from_name: formData.email,
+        user_name: formData.name,
+        to_name: contactConfig.YOUR_EMAIL,
+        message: formData.message,
+      };
 
-    emailjs
-      .send(
+      const result = await emailjs.send(
         contactConfig.YOUR_SERVICE_ID,
         contactConfig.YOUR_TEMPLATE_ID,
-        templateParams,
-        contactConfig.YOUR_USER_ID
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          setFormdata({
-            loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
-            variant: "success",
-            show: true,
-          });
-        },
-        (error) => {
-          console.log(error.text);
-          setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
-            variant: "danger",
-            show: true,
-          });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
-        }
+        templateParams
       );
+
+      setFormdata(prev => ({
+        ...prev,
+        loading: false,
+        alertmessage: "Message sent successfully! Thank you for reaching out.",
+        variant: "success",
+        show: true,
+        name: "",
+        email: "",
+        message: "",
+      }));
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setFormdata(prev => ({
+        ...prev,
+        loading: false,
+        alertmessage: "Failed to send message. Please try again or contact directly via email.",
+        variant: "danger",
+        show: true,
+      }));
+    }
   };
 
   const handleChange = (e) => {
-    setFormdata({
-      ...formData,
+    setFormdata(prev => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   return (
@@ -81,12 +86,11 @@ export const ContactUs = () => {
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
               className={`rounded-0 co_alert ${
                 formData.show ? "d-block" : "d-none"
               }`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata(prev => ({ ...prev, show: false }))}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>
@@ -152,7 +156,11 @@ export const ContactUs = () => {
               <br />
               <Row>
                 <Col lg="12" className="form-group">
-                  <button className="btn ac_btn" type="submit">
+                  <button
+                    className="btn ac_btn"
+                    type="submit"
+                    disabled={formData.loading}
+                  >
                     {formData.loading ? "Sending..." : "Send"}
                   </button>
                 </Col>

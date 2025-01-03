@@ -68,11 +68,6 @@ export const About = () => {
                 Expected May 2026
                 <br />
                 Cumulative GPA: 3.55/4.0
-                <br />
-                Relevant Coursework:
-                <br />
-                Data structures and algo, Computer systems and organization,
-                Software dev essentials
               </p>
             </div>
           </Col>

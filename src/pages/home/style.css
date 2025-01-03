@@ -45,6 +45,7 @@ section {
     height: auto !important;
     padding: 20px 0;
     margin-top: 40px;
+    text-align: center;
   }
 
   .intro_sec .text,
@@ -65,16 +66,48 @@ section {
   }
 
   .intro_sec > .h_bg-image {
-    min-height: 400px;
-    margin-top: 10px !important;
-    margin-bottom: 30px !important;
+    display: none;
+  }
+
+  .intro_sec .mobile-image {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center 30%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: var(--image-container-bg);
+    border: 3px solid var(--secondary-color);
+    filter: saturate(0.5);
+  }
+
+  .intro_btn-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
   }
 
   .ac_btn {
     padding: 12px 24px;
-    margin: 10px 0;
-    width: 100%;
+    margin: 0;
+    width: 200px;
     text-align: center;
+  }
+
+  .intro_sec .intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro_sec .text p {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto 20px;
   }
 }
 
