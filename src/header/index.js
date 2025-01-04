@@ -1,6 +1,6 @@
-    import React, { useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
-import { VscGrabber, VscClose } from "react-icons/vsc";
+import { RiMenuLine, RiCloseLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { logotext ,socialprofils } from "../content_option";
 import Themetoggle from "../components/themetoggle";
@@ -18,15 +18,14 @@ const Headermain = () => {
     <>
       <header className="fixed-top site__header">
         <div className="d-flex align-items-center justify-content-between">
-          <Link  className="navbar-brand nav_ac" to="/">
+          <Link className="navbar-brand nav_ac" to="/">
             {logotext}
           </Link>
           <div className="d-flex align-items-center">
           <Themetoggle />
-          <button className="menu__button  nav_ac" onClick={handleToggle}>
-            {!isActive ? <VscClose /> : <VscGrabber />}
+          <button className="menu__button nav_ac" onClick={handleToggle}>
+            {!isActive ? <RiCloseLine /> : <RiMenuLine />}
           </button>
-
           </div>
         </div>
 
