@@ -43,12 +43,15 @@
   align-items: flex-start;
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.7) 40%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(8, 8, 8, 0.2) 100%
   );
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project_item:hover .content {
@@ -61,32 +64,39 @@
   font-weight: 600;
   margin-bottom: 0.8rem;
   text-align: left;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .project_item .content p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1.5rem;
   text-align: left;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .project_item .content a {
   color: #fff;
   text-decoration: none;
   padding: 0.8rem 1.5rem;
-  background: var(--primary-color);
+  background: rgba(255, 161, 22, 0.9);
   border-radius: 8px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project_item .content a:hover {
-  background: var(--secondary-color);
+  background: rgba(255, 161, 22, 1);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile Styles */
@@ -97,32 +107,46 @@
   }
 
   .project_item {
-    aspect-ratio: 3/2;
+    aspect-ratio: 16/12;
+    border-radius: 12px;
   }
 
   .project_item .content {
     opacity: 1;
-    padding: 1.5rem;
+    padding: 1.25rem;
     background: linear-gradient(
       to top,
-      rgba(0, 0, 0, 0.95) 0%,
-      rgba(0, 0, 0, 0.8) 40%,
-      rgba(0, 0, 0, 0.4) 100%
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(8, 8, 8, 0.2) 100%
     );
-  }
-
-  .project_item .content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .project_item .content p {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .project_item .content a {
-    padding: 0.6rem 1.2rem;
+    padding: 0.75rem 1.25rem;
     font-size: 0.9rem;
+    border-radius: 6px;
+    background: rgba(255, 161, 22, 0.9);
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .project_item:active {
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
+  }
+
+  .project_item img {
+    filter: brightness(0.9);
   }
 }

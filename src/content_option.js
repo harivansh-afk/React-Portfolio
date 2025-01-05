@@ -126,6 +126,11 @@ const services = [{
 ];
 
 const dataportfolio = [{
+        img: "/images/project5.jpg",
+        description: "Founded SolveX, a gamified algorithm practice platform featuring real-time battles, AI-powered problem generation, and competitive matchmaking",
+        link: "https://solvex-pi.vercel.app/",
+    },
+    {
         img: "/images/project1.jpg",
         description: "Built a React/TypeScript RAG AI chat application with n8n, achieving 95% query response accuracy",
         link: "https://rag-ui-six.vercel.app/",
