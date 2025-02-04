@@ -12,7 +12,7 @@ const introdata = {
         third: "Tech Enthusiast",
     },
     description: "I'm passionate about building exceptional digital experiences that make a difference. With expertise in both frontend and backend development, I create scalable and efficient solutions that solve real-world problems.",
-    your_img_url: "https://i.imgur.com/0y00000.png",
+    your_img_url: "/assets/images/new_headshot.png",
 };
 
 const dataabout = {

@@ -65,8 +65,8 @@ section {
     font-size: 14px;
   }
 
-  .intro_sec > .h_bg-image {
-    display: none;
+  .intro_sec .h_bg-image {
+    display: none !important;
   }
 
   .intro_sec .mobile-image {
@@ -77,11 +77,12 @@ section {
     overflow: hidden;
     position: relative;
     background-size: cover;
-    background-position: center 30%;
+    background-position: center;
+    background-repeat: no-repeat;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    background-color: var(--image-container-bg);
+    background-color: transparent;
     border: 3px solid var(--secondary-color);
-    filter: saturate(0.5);
+    display: block;
   }
 
   .intro_btn-action {
@@ -177,7 +178,8 @@ section {
 
 .intro_sec .h_bg-image {
   background-size: cover;
-  background-position: center 30%;
+  background-position: center;
+  background-repeat: no-repeat;
   min-height: 700px;
   position: relative;
   max-width: 600px;
@@ -186,8 +188,9 @@ section {
   overflow: hidden;
   margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  background-color: var(--image-container-bg);
+  background-color: transparent;
   border: 0.5px solid var(--secondary-color);
+  display: block;
 }
 
 .ac_btn {
@@ -289,6 +292,42 @@ section {
   }
 }
 
-.intro_sec .h_bg-image {
-  filter: saturate(0.5);
+.intro_sec .mobile-image {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  border: 3px solid var(--secondary-color);
+  display: block;
+}
+
+/* Desktop styles */
+@media (min-width: 992px) {
+  .intro_sec .mobile-image {
+    display: none !important;
+  }
+
+  .intro_sec .h_bg-image {
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 700px;
+    position: relative;
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    border: 0.5px solid var(--secondary-color);
+  }
 }
