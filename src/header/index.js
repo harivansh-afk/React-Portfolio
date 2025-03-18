@@ -1,15 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./style.css";
 import { RiMenuLine, RiCloseLine } from "react-icons/ri";
+import { BsGrid3X3Gap } from "react-icons/bs";
 import { logotext } from "../content_option";
 import Themetoggle from "../components/themetoggle";
 
 const Headermain = () => {
   const [isActive, setActive] = useState("false");
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   const handleToggle = () => {
+    setIsAnimating(true);
     setActive(!isActive);
     document.body.classList.toggle("ovhidden");
+
+    // Reset animation state after animation completes
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
   };
 
   const handleNavClick = (e, targetId) => {
@@ -44,8 +53,23 @@ const Headermain = () => {
           </a>
           <div className="d-flex align-items-center">
             <Themetoggle />
-            <button className="menu__button nav_ac" onClick={handleToggle}>
-              {!isActive ? <RiCloseLine /> : <RiMenuLine />}
+            <button
+              className={`menu__button nav_ac ${isAnimating ? 'animating' : ''}`}
+              onClick={handleToggle}
+              aria-label={isActive ? "Open menu" : "Close menu"}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            >
+              {!isActive ? (
+                <RiCloseLine data-state="open" />
+              ) : (
+                <div className="icon-container">
+                  <div className={`icon-wrapper ${isHovering ? 'hover' : ''}`}>
+                    <RiMenuLine className="menu-icon" data-state="closed" />
+                    <BsGrid3X3Gap className="grid-icon" data-state="grid" />
+                  </div>
+                </div>
+              )}
             </button>
           </div>
         </div>

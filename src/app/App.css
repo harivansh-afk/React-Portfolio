@@ -15,11 +15,47 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   position: fixed;
   height: 100%;
   width: 100%;
+}
+
+/* Mobile devices override for normal scrolling */
+@media (max-width: 768px) {
+  html,
+  body {
+    overflow: auto;
+    position: static;
+    height: auto;
+  }
+
+  .fullpage-container {
+    position: static !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .fullpage-sections {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .fullpage-section {
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .fullpage-section-content {
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  .fullpage-pagination {
+    display: none !important;
+  }
 }
 
 /* Full page styles */
@@ -52,8 +88,8 @@ html, body {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
-  scrollbar-width: none;  /* Hide scrollbar Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar Firefox */
 }
 
 .fullpage-section-content::-webkit-scrollbar {
@@ -111,22 +147,6 @@ html, body {
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
-  .fullpage-pagination {
-    right: 10px;
-    gap: 10px;
-  }
-  
-  .pagination-dot {
-    width: 8px;
-    height: 8px;
-  }
-  
-  .fullpage-section-content {
-    padding-top: 50px;
-  }
-}
-
 @media (min-width: 1400px) {
   .container,
   .container-lg,
@@ -134,6 +154,6 @@ html, body {
   .container-sm,
   .container-xl,
   .container-xxl {
-      max-width: 1140px;
+    max-width: 1140px;
   }
 }

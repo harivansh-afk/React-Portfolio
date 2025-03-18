@@ -6,6 +6,9 @@ import { dataportfolio, meta } from "../../content_option";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 export const Portfolio = () => {
+  // Check if the device is mobile
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -22,17 +25,26 @@ export const Portfolio = () => {
         </Row>
         <div className="mb-5 project_items_ho">
           {dataportfolio.map((data, i) => {
-            const title = data.description.split(",")[0];
+            // Extract title and description without modifying for desktop
+            const fullTitle = data.description.split(",")[0];
             const description = data.description.split(",").slice(1).join(",").trim();
+
+            // Create shortened version only for mobile display
+            const words = fullTitle.split(" ");
+            const shortTitle = words.length > 3
+              ? words.slice(0, 3).join(" ") + "..."
+              : fullTitle;
 
             return (
               <div key={i} className="project_item">
-                <img src={data.img} alt={title} />
+                <img src={data.img} alt={fullTitle} />
                 <div className="content">
-                  <h3>{title}</h3>
+                  <h3>{fullTitle}</h3>
                   <p>{description}</p>
-                  <a href={data.link} target="_blank" rel="noopener noreferrer">
-                    View Project <FaExternalLinkAlt size={14} />
+                  <a href={data.link} target="_blank" rel="noopener noreferrer" className="project-link">
+                    <span className="desktop-text">View Project</span>
+                    <span className="mobile-text">{shortTitle}</span>
+                    <FaExternalLinkAlt size={14} />
                   </a>
                 </div>
               </div>

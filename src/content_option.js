@@ -126,6 +126,11 @@ const services = [{
 ];
 
 const dataportfolio = [{
+        img: "/images/project7.jpg",
+        description: "AI-Powered Photo Editor, A modern SPA using Next.js, TypeScript, and Google Gemini 2.0 for real-time AI image transformations with an intuitive interface",
+        link: "https://ai-image-editor-three.vercel.app/",
+    },
+    {
         img: "/images/project6.jpg",
         description: "AI-Powered Real Estate Investment Analysis. Make data-driven property investment decisions with comprehensive analytics, risk assessment, and market insights powered by artificial intelligence.",
         link: "https://estate-ai-eight.vercel.app/landing",

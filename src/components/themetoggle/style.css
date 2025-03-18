@@ -20,3 +20,66 @@
 .theme_toggler:hover svg {
   color: var(--text-color-3);
 }
+
+.theme__button {
+  color: var(--text-color);
+  padding: 10px;
+  background: transparent;
+  border: none;
+  position: relative;
+  overflow: visible;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1001;
+}
+
+.theme__button:hover {
+  color: var(--text-color-3);
+  transform: scale(1.05);
+}
+
+.theme-icon-wrapper {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.theme-icon-wrapper svg {
+  width: 2em;
+  height: 2em;
+  fill: var(--text-color-2);
+  color: var(--text-color-2);
+  transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.theme-icon-wrapper.hover svg {
+  transform: rotate(90deg) scale(1.1);
+  fill: var(--text-color-3);
+  color: var(--text-color-3);
+  filter: drop-shadow(0 0 5px var(--text-color-3));
+}
+
+/* Create a glowing effect behind the icon */
+.theme__button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--text-color-3) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.theme__button:hover::before {
+  width: 3em;
+  height: 3em;
+  opacity: 0.15;
+}
