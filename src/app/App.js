@@ -1,27 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  useLocation,
-} from "react-router-dom";
-import withRouter from "../hooks/withRouter";
-import AppRoutes from "./routes";
+import AnimatedCursor from "../hooks/AnimatedCursor";
 import Headermain from "../header";
-import AnimatedCursor  from "../hooks/AnimatedCursor";
+import { Home } from "../pages/home";
+import { About } from "../pages/about";
+import { Portfolio } from "../pages/portfolio";
+import { ContactUs } from "../pages/contact";
+import FullPage from "../components/FullPage";
+import Section from "../components/Section";
 import "./App.css";
-
-function _ScrollToTop(props) {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return props.children;
-}
-const ScrollToTop = withRouter(_ScrollToTop);
 
 export default function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <div className="app-container">
       <div className="cursor__dot">
         <AnimatedCursor
           innerSize={15}
@@ -32,10 +23,21 @@ export default function App() {
           outerScale={5}
         />
       </div>
-      <ScrollToTop>
-        <Headermain />
-        <AppRoutes />
-      </ScrollToTop>
-    </Router>
+      <Headermain />
+      <FullPage>
+        <Section id="home">
+          <Home />
+        </Section>
+        <Section id="about">
+          <About />
+        </Section>
+        <Section id="portfolio">
+          <Portfolio />
+        </Section>
+        <Section id="contact">
+          <ContactUs />
+        </Section>
+      </FullPage>
+    </div>
   );
 }

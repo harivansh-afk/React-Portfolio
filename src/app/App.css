@@ -1,42 +1,139 @@
-@media only screen and (max-width: 991px) {
-    .s_c {
-        padding-top: 40px;
-    }
+/* Variables */
+:root {
+  --bg-color-rgb: 33, 37, 41;
+  --primary-color: #ff014f;
 }
 
-.page-enter {
-    transform: translateY(100%);
+[data-theme="light"] {
+  --bg-color-rgb: 255, 255, 255;
 }
 
-.page-enter-active {
-    transform: translateY(0%);
-    transition: all 400ms ease-out;
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.page-exit {
-    transform: translateY(0%);
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+html, body {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
-.page-exit-active {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    transform: translateY(-130%);
-    transition: all 400ms ease-out;
+/* Full page styles */
+.app-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fullpage-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fullpage-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fullpage-section-content {
+  padding-top: 80px; /* Increased to account for header with margin */
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
+  scrollbar-width: none;  /* Hide scrollbar Firefox */
+}
+
+.fullpage-section-content::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome, Safari, Opera */
+}
+
+.section-scrollable-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px; /* Add bottom padding for content */
+}
+
+/* Navigation dots */
+.fullpage-pagination {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--text-color, #fff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot.active {
+  transform: scale(1.2);
+}
+
+/* Make sure header is above fullpage */
+.site__header {
+  z-index: 1000;
+}
+
+/* Social icons positioning */
+.stick_follow_icon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Only allow scrolling on the active section */
+.fullpage-section:not(.active-section) .fullpage-section-content {
+  overflow: hidden;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .fullpage-pagination {
+    right: 10px;
+    gap: 10px;
+  }
+  
+  .pagination-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .fullpage-section-content {
+    padding-top: 50px;
+  }
 }
 
 @media (min-width: 1400px) {
-    .container,
-    .container-lg,
-    .container-md,
-    .container-sm,
-    .container-xl,
-    .container-xxl {
-        max-width: 1140px;
-    }
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+      max-width: 1140px;
+  }
 }

@@ -126,6 +126,11 @@ const services = [{
 ];
 
 const dataportfolio = [{
+        img: "/images/project6.jpg",
+        description: "AI-Powered Real Estate Investment Analysis. Make data-driven property investment decisions with comprehensive analytics, risk assessment, and market insights powered by artificial intelligence.",
+        link: "https://estate-ai-eight.vercel.app/landing",
+    },
+    {
         img: "/images/project5.jpg",
         description: "Founded SolveX, a gamified algorithm practice platform featuring real-time battles, AI-powered problem generation, and competitive matchmaking",
         link: "https://solvex-pi.vercel.app/",

@@ -90,6 +90,16 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .intro_btn-action .buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
   }
 
   .ac_btn {
@@ -103,12 +113,20 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
   }
 
   .intro_sec .text p {
     text-align: center;
     max-width: 90%;
     margin: 0 auto 20px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-bottom: 20px;
   }
 }
 
@@ -125,6 +143,11 @@ section {
   .btn-portfolio,
   .btn-about {
     font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .ac_btn {
+    width: 180px; /* Slightly smaller on very small screens */
     padding: 10px 20px;
   }
 }
@@ -329,5 +352,72 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     background-color: transparent;
     border: 0.5px solid var(--secondary-color);
+  }
+
+  .intro_btn-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .intro_btn-action .buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .ac_btn {
+    margin-right: 0; /* Remove default right margin */
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons .icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(var(--bg-color-rgb, 0, 0, 0), 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons .icon-link:hover {
+  background: rgba(var(--primary-color-rgb, 255, 1, 79), 0.1);
+  transform: translateY(-2px);
+}
+
+.social-icons .icon-link svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-color);
+  opacity: 0.8;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icons .icon-link:hover svg {
+  opacity: 1;
+  fill: var(--primary-color, #ff014f);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 991.98px) {
+  .social-icons {
+    justify-content: center;
   }
 }
