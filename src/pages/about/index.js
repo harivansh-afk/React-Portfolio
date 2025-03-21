@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col } from "react-bootstrap";
+import { RiExternalLinkLine } from "react-icons/ri";
+import SkillsRadar from "../../components/SkillsRadar";
 import {
   dataabout,
   meta,
@@ -36,22 +38,39 @@ export const About = () => {
         </Row>
         <Row className=" sec_sp">
           <Col lg="5">
-            <h3 className="color_sec py-4">Work Timline</h3>
+            <h3 className="color_sec py-4">Work Timeline</h3>
           </Col>
           <Col lg="7">
-            <table className="table caption-top">
-              <tbody>
-                {worktimeline.map((data, i) => {
-                  return (
-                    <tr key={i}>
-                      <th scope="row">{data.jobtitle}</th>
-                      <td>{data.where}</td>
-                      <td>{data.date}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+            <div className="work-timeline">
+              {worktimeline.map((data, i) => {
+                return (
+                  <div key={i} className="timeline-item">
+                    <div className="timeline-content">
+                      <h4 className="timeline-title">{data.jobtitle}</h4>
+                      <div className="timeline-company">
+                        <span>{data.where}</span>
+                        {data.url && (
+                          <a
+                            href={data.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="company-link"
+                            aria-label={`Visit ${data.where} website`}
+                            title={`Visit ${data.where} website`}
+                          >
+                            <RiExternalLinkLine aria-hidden="true" />
+                          </a>
+                        )}
+                      </div>
+                      <span className="timeline-date">{data.date}</span>
+                      {data.description && (
+                        <p className="timeline-description">{data.description}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </Col>
         </Row>
         <Row className="sec_sp">
@@ -76,24 +95,8 @@ export const About = () => {
           <Col lg="5">
             <h3 className="color_sec py-4">Skills</h3>
           </Col>
-          <Col lg="7">
-            {skills.map((data, i) => {
-              return (
-                <div key={i}>
-                  <h3 className="progress-title">{data.name}</h3>
-                  <div className="progress">
-                    <div
-                      className="progress-bar"
-                      style={{
-                        width: `${data.value}%`,
-                      }}
-                    >
-                      <div className="progress-value">{data.value}%</div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          <Col lg="7" className="d-flex justify-content-center">
+            <SkillsRadar skills={skills} />
           </Col>
         </Row>
       </Container>

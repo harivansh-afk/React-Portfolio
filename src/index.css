@@ -8,6 +8,12 @@
   --overlay-color: rgb(8 8 8 / 63%);
   --image-container-bg: #060606;
   --card-border: rgba(255, 255, 255, 0.2);
+
+  /* RGB Values for opacity manipulation */
+  --bg-color-rgb: 8, 8, 8;
+  --primary-rgb: 15, 15, 15;
+  --secondary-rgb: 255, 255, 255;
+  --text-color-rgb: 255, 255, 255;
 }
 
 [data-theme="light"] {
@@ -20,6 +26,12 @@
   --overlay-color: rgb(227 218 201 / 70%);
   --image-container-bg: #d8c9b2;
   --card-border: rgba(0, 0, 0, 0.2);
+
+  /* RGB Values for opacity manipulation */
+  --bg-color-rgb: 227, 218, 201;
+  --primary-rgb: 227, 218, 201;
+  --secondary-rgb: 0, 0, 0;
+  --text-color-rgb: 0, 0, 0;
 }
 
 html,

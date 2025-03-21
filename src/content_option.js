@@ -20,94 +20,61 @@ const dataabout = {
     aboutme: "I am a Computer Science student at the University of Virginia, with a passion for software development and AI. I enjoy building scalable applications and exploring the latest advancements in technology. I am always eager to learn and contribute to innovative projects.",
 };
 const worktimeline = [{
+        jobtitle: "Software Development Intern",
+        where: "SUPPLMEN",
+        date: "January 2025 - Present",
+        url: "https://suppl-men.vercel.app/"
+    },
+    {
         jobtitle: "Co Founder",
         where: "SOLVEX",
         date: "December 2024 - Present",
+        url: "https://solvex.live/"
     },
     {
         jobtitle: "Front End Development Intern",
         where: "UNIKOVE TECHNOLOGIES",
         date: "June 2024 - August 2024",
+        url: "https://unikove.com/"
     },
     {
         jobtitle: "Software Development Intern",
         where: "MOGLIX",
         date: "June 2023 - August 2023",
+        url: "https://www.moglix.com/"
     },
     {
         jobtitle: "Software Engineering Intern",
         where: "SAN AUTO",
         date: "June 2022 - August 2022",
+        url: "https://www.sanautomotive.com/"
     },
 ];
 
-const skills = [{
-        name: "Python",
-        value: 90,
-    },
+const skills = [
     {
-        name: "Java",
+        name: "Full-Stack Development",
         value: 85,
     },
     {
-        name: "Typescript",
-        value: 80,
-    },
-    {
-        name: "HTML",
+        name: "Frontend (React/Next.js)",
         value: 90,
     },
     {
-        name: "CSS/Tailwind",
+        name: "Backend (Node.js)",
+        value: 88,
+    },
+    {
+        name: "AI & Machine Learning",
         value: 85,
     },
     {
-        name: "C/C++",
-        value: 70,
+        name: "Database & API Design",
+        value: 85,
     },
     {
-        name: "React.js",
-        value: 80,
-    },
-    {
-        name: "Node.js",
-        value: 75,
-    },
-    {
-        name: "Express.js",
-        value: 75,
-    },
-    {
-        name: "Vite",
-        value: 80,
-    },
-    {
-        name: "Next.js 14",
-        value: 70,
-    },
-    {
-        name: "Git/Github",
-        value: 90,
-    },
-    {
-        name: "PostgreSQL",
-        value: 80,
-    },
-    {
-        name: "MySQL",
-        value: 80,
-    },
-    {
-        name: "Supabase",
-        value: 75,
-    },
-    {
-        name: "Vercel",
-        value: 80,
-    },
-    {
-        name: "OAuth 2.0",
-        value: 70,
+        name: "DevOps & Deployment",
+        value: 87,
     },
 ];
 
