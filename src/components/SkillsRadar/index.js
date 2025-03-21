@@ -17,6 +17,9 @@ const SkillsRadar = ({ skills }) => {
     document.documentElement.getAttribute('data-theme') !== 'light'
   );
 
+  // Check if the device is mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   useEffect(() => {
     // Watch for theme changes
     const observer = new MutationObserver((mutations) => {
@@ -29,7 +32,17 @@ const SkillsRadar = ({ skills }) => {
 
     observer.observe(document.documentElement, { attributes: true });
 
-    return () => observer.disconnect();
+    // Watch for resize events to detect mobile
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -69,17 +82,45 @@ const SkillsRadar = ({ skills }) => {
       r: {
         angleLines: {
           color: isDarkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)',
+          lineWidth: isMobile ? 0.5 : 1
         },
         grid: {
           color: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+          circular: true,
+          lineWidth: isMobile ? 0.5 : 1
         },
         pointLabels: {
           color: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.9)',
           font: {
-            size: 16,
+            size: isMobile ? 10 : 16,
             family: 'Raleway',
             weight: '600'
           },
+          // Improve label display on mobile
+          callback: function(value) {
+            if (isMobile) {
+              // Create mobile-friendly abbreviations
+              switch(value) {
+                case "Full-Stack Development":
+                  return "Full-Stack";
+                case "Frontend (React/Next.js)":
+                  return "Frontend";
+                case "Backend (Node.js)":
+                  return "Backend";
+                case "AI & Machine Learning":
+                  return "AI & ML";
+                case "Database & API Design":
+                  return "Database";
+                case "DevOps & Deployment":
+                  return "DevOps";
+                default:
+                  return value;
+              }
+            }
+            return value;
+          },
+          // Ensure labels don't get cut off
+          padding: isMobile ? 8 : 4,
         },
         ticks: {
           backdropColor: 'transparent',
@@ -87,16 +128,20 @@ const SkillsRadar = ({ skills }) => {
           showLabelBackdrop: false,
           beginAtZero: true,
           max: 100,
-          stepSize: 20,
+          stepSize: isMobile ? 25 : 20,
           font: {
-            size: 12
-          }
+            size: isMobile ? 8 : 12
+          },
+          // Display fewer ticks on mobile
+          count: isMobile ? 4 : 6,
+          // Make sure the scale starts at 50
+          min: 50
         },
       },
     },
     plugins: {
       legend: {
-        display: true,
+        display: !isMobile, // Hide legend on mobile to save space
         position: 'top',
         labels: {
           color: isDarkMode ? '#fff' : '#000',
@@ -115,13 +160,15 @@ const SkillsRadar = ({ skills }) => {
         bodyColor: isDarkMode ? '#fff' : '#000',
         borderColor: 'rgba(204, 0, 0, 0.5)',
         borderWidth: 1,
-        padding: 12,
+        padding: isMobile ? 8 : 12,
         cornerRadius: 8,
         displayColors: false,
         callbacks: {
           title: (items) => items[0].label,
           label: (context) => `Proficiency: ${context.raw}%`,
         },
+        // Ensure tooltip doesn't go off-screen on mobile
+        position: 'nearest',
       },
     },
     maintainAspectRatio: false,

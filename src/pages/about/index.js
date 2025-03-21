@@ -92,10 +92,10 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lg="5">
+          <Col lg="5" className="mb-3 mb-lg-0">
             <h3 className="color_sec py-4">Skills</h3>
           </Col>
-          <Col lg="7" className="d-flex justify-content-center">
+          <Col lg="7" xs="12" className="d-flex justify-content-center align-items-center px-0">
             <SkillsRadar skills={skills} />
           </Col>
         </Row>

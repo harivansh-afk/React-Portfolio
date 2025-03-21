@@ -102,9 +102,21 @@
   color: var(--text-color-3);
 }
 
+/* Mobile Optimizations */
 @media (max-width: 768px) {
+  .skills-radar-container {
+    max-width: 100%;
+    padding: 0;
+    overflow: visible;
+  }
+
   .skills-radar-chart {
-    height: 350px;
+    height: 380px;
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 100vw;
+    transform: scale(0.95);
+    transform-origin: center center;
   }
 
   .skills-legend {
@@ -117,5 +129,23 @@
 
   .skill-legend-value {
     font-size: 0.9rem;
+  }
+}
+
+/* Small Mobile Optimizations */
+@media (max-width: 480px) {
+  .skills-radar-chart {
+    height: 340px;
+    transform: scale(0.9);
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+
+/* Extra Small Mobile Optimizations */
+@media (max-width: 375px) {
+  .skills-radar-chart {
+    height: 320px;
+    transform: scale(0.85);
   }
 }
