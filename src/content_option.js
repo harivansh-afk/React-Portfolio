@@ -138,7 +138,7 @@ const dataportfolio = [{
     {
         img: "/images/project5.jpg",
         description: "Founded SolveX, a gamified algorithm practice platform featuring real-time battles, AI-powered problem generation, and competitive matchmaking",
-        link: "https://solvex-pi.vercel.app/",
+        link: "https://solvex.live",
     },
     {
         img: "/images/project1.jpg",
