@@ -93,6 +93,11 @@ const services = [{
 ];
 
 const dataportfolio = [{
+        img: "/images/project8.jpg",
+        description: "The Truman Project, A real-time fact-checking platform that instantly transcribes conversations and verifies claims using a network of specialized AI agents for combating misinformation.",
+        link: "https://thetrumanproject.vercel.app/",
+    },
+    {
         img: "/images/project7.jpg",
         description: "AI-Powered Photo Editor, A modern SPA using Next.js, TypeScript, and Google Gemini 2.0 for real-time AI image transformations with an intuitive interface",
         link: "https://ai-image-editor-three.vercel.app/",
